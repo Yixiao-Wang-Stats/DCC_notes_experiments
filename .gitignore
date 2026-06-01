@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+*.log
+*.out
+outputs/
+checkpoints/
+cache/
+data/raw/
+data/processed/
+.env
+.DS_Store
