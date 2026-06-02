@@ -1,0 +1,19 @@
+project:
+run_id:
+purpose:
+seed:
+environment:
+resources:
+  partition:
+  cpus:
+  memory:
+  gpu:
+  time:
+paths:
+  input:
+  output_root:
+  cache:
+  log:
+parameters:
+  placeholder:
+notes:
