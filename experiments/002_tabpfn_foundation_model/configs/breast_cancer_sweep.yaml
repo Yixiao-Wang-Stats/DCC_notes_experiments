@@ -1,0 +1,38 @@
+project: gosdt_cpu
+run_id: 2026-06-02_002_gosdt_breast_cancer_sweep
+purpose: "Small parameter sweep for GOSDT on sklearn breast cancer dataset."
+
+environment:
+  name: gosdt-cpu
+  path: /usr/xtmp/yw676/envs/gosdt-cpu
+
+resources:
+  partition: compsci
+  cpus: 2
+  memory: 4G
+  gpu: none
+  time: "00:20:00"
+
+paths:
+  repo: /home/users/yw676/projects/DCC_notes_experiments
+  output_root: /usr/xtmp/yw676/DCC_runs/gosdt_cpu
+  script: experiments/001_gosdt_cpu/scripts/run_gosdt_breast_cancer_debug.py
+
+parameters:
+  dataset: sklearn_breast_cancer
+  seed: 2026
+  regularization_values:
+    - 0.05
+    - 0.02
+    - 0.01
+  depth_budget_values:
+    - 2
+    - 3
+    - 4
+  time_limit: 60
+  gbdt_n_estimators: 20
+  gbdt_max_depth: 1
+
+notes:
+  - "This sweep tests how regularization and depth budget affect train/test accuracy."
+  - "Each Slurm array task writes to a separate output directory."

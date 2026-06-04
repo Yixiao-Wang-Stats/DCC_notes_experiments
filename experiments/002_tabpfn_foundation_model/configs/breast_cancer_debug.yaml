@@ -1,0 +1,33 @@
+project: gosdt_cpu
+run_id: 2026-06-02_001_gosdt_breast_cancer_cpu_debug
+purpose: "Run a small GOSDT CPU debug experiment on sklearn breast cancer dataset."
+
+environment:
+  name: gosdt-cpu
+  path: /usr/xtmp/yw676/envs/gosdt-cpu
+
+resources:
+  partition: compsci
+  cpus: 2
+  memory: 4G
+  gpu: none
+  time: "00:20:00"
+
+paths:
+  repo: /home/users/yw676/projects/DCC_notes_experiments
+  output_root: /usr/xtmp/yw676/DCC_runs/gosdt_cpu
+  script: experiments/001_gosdt_cpu/scripts/run_gosdt_breast_cancer_debug.py
+
+parameters:
+  dataset: sklearn_breast_cancer
+  seed: 2026
+  regularization: 0.02
+  depth_budget: 3
+  time_limit: 60
+  gbdt_n_estimators: 20
+  gbdt_max_depth: 1
+
+notes:
+  - "This is a CPU-only debug run."
+  - "The dataset is built into sklearn; no external data download is needed."
+  - "Continuous features are binarized using ThresholdGuessBinarizer."
